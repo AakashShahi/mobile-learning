@@ -12,6 +12,7 @@ class _CardViewState extends State<CardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Ma Card View Hum")),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
