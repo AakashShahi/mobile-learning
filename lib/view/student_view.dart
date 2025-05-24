@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/model/student.dart';
+import 'package:my_project/view/output_view.dart';
 
 class StudentListView extends StatefulWidget {
   const StudentListView({super.key});
@@ -160,12 +161,48 @@ class _StudentListViewState extends State<StudentListView> {
                               trailing: IconButton(
                                 icon: const Icon(Icons.delete),
                                 onPressed: () {
-                                  setState(() {
-                                    lstStudents.removeAt(index);
-                                  });
+                                  AlertDialog alert = AlertDialog(
+                                    title: const Text("Delete?"),
+                                    content: Text(
+                                      "Are you sure you want to delete?",
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        child: const Text("No"),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: const Text("Yes"),
+                                        onPressed: () {
+                                          setState(() {
+                                            lstStudents.removeAt(index);
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return alert;
+                                    },
+                                  );
                                 },
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => OutputView(
+                                          student: lstStudents[index],
+                                        ),
+                                  ),
+                                );
+                              },
                             );
                           },
                         )
