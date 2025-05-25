@@ -21,7 +21,6 @@ class _SimpleInterestState extends State<SimpleInterest> {
       appBar: AppBar(
         title: Text("Simple Interest Calculator"),
         centerTitle: true,
-        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -78,7 +77,6 @@ class _SimpleInterestState extends State<SimpleInterest> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -91,12 +89,15 @@ class _SimpleInterestState extends State<SimpleInterest> {
                       double third = double.parse(thirdController.text);
 
                       setState(() {
-                        si = first * second * third;
+                        si = first * second * third / 100;
                         sitext = si.toString();
                       });
                     }
                   },
-                  child: Text("Calculate"),
+                  child: Text(
+                    "Calculate",
+                    style: TextStyle(fontFamily: "Open Sans Itallic"),
+                  ),
                 ),
               ),
               Container(
