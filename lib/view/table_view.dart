@@ -10,7 +10,7 @@ class TableView extends StatefulWidget {
 
 class _TableViewState extends State<TableView> {
   List<Student> lstStudent = [
-    Student(fname: "Shubham", lname: "Khanel"),
+    Student(fname: "Shubham", lname: "Khanal"),
     Student(fname: "Aman", lname: "Shahi"),
     Student(fname: "Aayush", lname: "Shrestha"),
   ];
